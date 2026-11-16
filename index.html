@@ -374,7 +374,7 @@ function dishById(id){
   for(var j = 0; j < BOXES.length; j++) if(BOXES[j].id === id) return BOXES[j];
   return null;
 }
-function dishImg(d){ if(d.img === "LOGO" || IMG[d.id] === "LOGO") return LOGO_URI; return d.img || IMG[d.id] || LOGO_URI; }
+function dishImg(d){ if(d.img === "LOGO") return LOGO_URI; if(d.img) return d.img; if(IMG[d.id] && IMG[d.id] !== "LOGO") return IMG[d.id]; return LOGO_URI; }
 function esc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 function applyLangTo(el){
   var spans = el.querySelectorAll("[data-fr]");
